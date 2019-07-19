@@ -1,0 +1,152 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.zaglushka {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
+.zagolovok {
+  font-size: 70px;
+  text-align: right;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #ffffff;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  font-family: 'Lobster', cursive;
+}
+
+.zagolovok-show {
+  opacity: 1;
+  -webkit-transform: translateX(280px);
+          transform: translateX(280px);
+}
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.about {
+  background: url("../img/about-fon.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.about .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about .container .zagolovok {
+  margin: 50px 0;
+}
+
+.about .container .img-logo {
+  width: 300px;
+  height: 300px;
+  z-index: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease 0.3s;
+  transition: all 0.5s ease 0.3s;
+  opacity: 0;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+}
+
+.about .container .img-logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.about .container .img-logo-show {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+.about .container .obo-mne {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 25px;
+  color: #ffffff;
+  z-index: 1;
+  -webkit-transition: all 0.5s ease 0.6s;
+  transition: all 0.5s ease 0.6s;
+  opacity: 0;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+  line-height: 35px;
+  padding: 0 10%;
+}
+
+.about .container .obo-mne p:nth-child(1) {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.about .container .obo-mne p:nth-child(3) {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.about .container .obo-mne p:nth-child(3):after {
+  content: '\f103';
+  font-family: "FontAwesome";
+  color: #ffffff;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: -60px;
+  font-size: 50px;
+  font-weight: normal;
+}
+
+.about .container .obo-mne-show {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+.achive {
+  background-color: green;
+}
+
+.gallery {
+  background-color: yellow;
+}
+
+.contacts {
+  background-color: black;
+}
+/*# sourceMappingURL=style.css.map */
