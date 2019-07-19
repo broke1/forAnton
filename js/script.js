@@ -35,6 +35,12 @@ window.addEventListener('load', function() {
   
             }
 
+            if (section.classList.contains('achive')) {
+                
+             //   section.querySelector('.vspishka').classList.add('vspishka-show');
+
+            }
+
 
         },300);
 
@@ -47,6 +53,13 @@ window.addEventListener('load', function() {
                 section.querySelector('.zagolovok').classList.remove('zagolovok-show');
                 section.querySelector('.img-logo').classList.remove('img-logo-show');
                 section.querySelector('.obo-mne').classList.remove('obo-mne-show');
+            }
+
+            if (section.classList.contains('achive')) {
+                
+              //  section.querySelector('.vspishka').classList.remove('vspishka-show');
+               
+
             }
         }
 

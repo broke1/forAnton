@@ -139,7 +139,49 @@ body {
 }
 
 .achive {
-  background-color: green;
+  background: url("../img/achive-fon.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.achive .vspishka {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  opacity: 0;
+}
+
+.achive .vspishka-show {
+  -webkit-animation: vspishka 3s ease 0s;
+          animation: vspishka 3s ease 0s;
+}
+
+@-webkit-keyframes vspishka {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes vspishka {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .gallery {
