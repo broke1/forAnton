@@ -147,41 +147,120 @@ body {
 }
 
 .achive .vspishka {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 0vh;
   background: #ffffff;
   opacity: 0;
 }
 
 .achive .vspishka-show {
-  -webkit-animation: vspishka 3s ease 0s;
-          animation: vspishka 3s ease 0s;
+  -webkit-animation: vspishka 0.2s ease 0s;
+          animation: vspishka 0.2s ease 0s;
 }
 
 @-webkit-keyframes vspishka {
   0% {
     opacity: 0;
+    height: 0%;
+  }
+  1% {
+    opacity: 0;
+    height: 100%;
   }
   50% {
-    opacity: 1;
+    opacity: 0.8;
+    height: 100%;
+  }
+  99% {
+    opacity: 0;
+    height: 100%;
   }
   100% {
     opacity: 0;
+    height: 0%;
   }
 }
 
 @keyframes vspishka {
   0% {
     opacity: 0;
+    height: 0%;
+  }
+  1% {
+    opacity: 0;
+    height: 100%;
   }
   50% {
-    opacity: 1;
+    opacity: 0.8;
+    height: 100%;
+  }
+  99% {
+    opacity: 0;
+    height: 100%;
   }
   100% {
     opacity: 0;
+    height: 0%;
   }
+}
+
+.achive .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.achive .container .img-block-2 {
+  width: 700px;
+  margin: 0 auto;
+  z-index: 2;
+  opacity: 0;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
+}
+
+.achive .container .img-block-2 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.achive .container .img-block-2-show {
+  opacity: 1;
+}
+
+.achive .container .circles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.achive .container .circles .circle-block {
+  position: relative;
 }
 
 .gallery {

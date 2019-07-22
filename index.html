@@ -37,9 +37,16 @@
         <section class="achive section">
                 <div class="zaglushka"></div>
                 <div class="vspishka"></div>
-                <div class="container">
-                        <div>   
-                            DFDFSDSFDSFDFDSFDSFD
+                <div class="container"> 
+                        <div class="circles">
+                            <div class="circle-block" v-for="circle in circles">
+                                    <canvas class="circle" width="300" height="300" ></canvas>
+                                    <p class="circle-numbers">{{circle.number}}</p>
+                                    <p class="about-numbers">{{circle.text}}</p>
+                            </div> 
+                        </div>
+                        <div class="img-block-2">
+                            <img src="img/block-2-couple.png">
                         </div>
                 </div>
         </section>
