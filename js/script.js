@@ -31,6 +31,9 @@ window.addEventListener('load', function() {
           {url:"img/gallery/img-1.png"},
           {url:"img/gallery/img-2.png"},
           {url:"img/gallery/img-3.png"},
+          {url:"img/gallery/img-1.png"},
+          {url:"img/gallery/img-2.png"},
+          {url:"img/gallery/img-3.png"},
         ]
       }
 
@@ -97,8 +100,21 @@ window.addEventListener('load', function() {
             }
 
             if (section.classList.contains('gallery')) {
+            
               section.querySelector('.zagolovok').classList.add('zagolovok-show');
               $("#lightgallery").lightGallery(); 
+              document.querySelector('.gallery-itself').addEventListener("mouseover",function(){
+                document.querySelector('#fullpage').onwheel =  function(event) {
+                  event.stopPropagation();
+                  
+                };
+              });
+              document.querySelector('.gallery-itself').addEventListener("mouseout",function(){
+                document.querySelector('#fullpage').onwheel =  function(event) {
+                  document.querySelector('#fullpage').originalEvent;
+                };
+              });
+
             }
 
 

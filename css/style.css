@@ -342,6 +342,8 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   z-index: 1;
+  height: 600px;
+  overflow: scroll;
 }
 
 .gallery .container .gallery-itself .img-block {
