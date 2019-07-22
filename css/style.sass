@@ -163,7 +163,7 @@ $transition: all 0.5s ease
         .img-block-2
             width: 700px
             margin: 0 auto
-            z-index: 2
+            z-index: 1
             opacity: 0
             transition: all 3s ease
 
@@ -180,13 +180,78 @@ $transition: all 0.5s ease
             flex-flow: row nowrap
             justify-content: space-between
             align-items: flex-start
+            width: 100%
+            margin-bottom: 50px
         
             .circle-block
                 position: relative
+                opacity: 0
+                transition: $transition
+                
+                .circle
+                    transform: rotate(-90deg) 
+
+                .circle-numbers
+                    position: absolute
+                    top: 10%
+                    left: 50%
+                    transform: translateX(-50%)
+                    color: #ffffff
+                    font-family: 'Ubuntu', sans-serif
+                    font-size: 50px
+                    z-index: 1
+
+                .about-numbers
+                    position: absolute
+                    top: 45%
+                    left: 50%
+                    transform: translateX(-50%)
+                    color: #ffffff
+                    font-family: 'Ubuntu', sans-serif
+                    font-size: 22px
+                    z-index: 1
+                    text-align: center
+                    line-height: 30px
+
+            .circle-block-show
+                opacity: 1
+
 
 
 .gallery
-    background-color: yellow
+    background: url("../img/gallery-fon.png")
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    position: relative
+
+    .container
+        
+        display: flex
+        flex-flow: column nowrap
+        justify-content: flex-start
+        align-items: center
+
+
+        .gallery-itself
+            display: flex
+            flex-flow: row wrap
+            align-items: center
+            justify-content: center
+            z-index: 1
+            
+            .img-block
+                width: 300px
+                height: 200px
+
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+
+              
+                
+
 
 .contacts
     background-color: black

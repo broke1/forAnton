@@ -226,7 +226,7 @@ body {
 .achive .container .img-block-2 {
   width: 700px;
   margin: 0 auto;
-  z-index: 2;
+  z-index: 1;
   opacity: 0;
   -webkit-transition: all 3s ease;
   transition: all 3s ease;
@@ -257,14 +257,103 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 .achive .container .circles .circle-block {
   position: relative;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.achive .container .circles .circle-block .circle {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.achive .container .circles .circle-block .circle-numbers {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #ffffff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 50px;
+  z-index: 1;
+}
+
+.achive .container .circles .circle-block .about-numbers {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #ffffff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 22px;
+  z-index: 1;
+  text-align: center;
+  line-height: 30px;
+}
+
+.achive .container .circles .circle-block-show {
+  opacity: 1;
 }
 
 .gallery {
-  background-color: yellow;
+  background: url("../img/gallery-fon.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.gallery .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gallery .container .gallery-itself {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+}
+
+.gallery .container .gallery-itself .img-block {
+  width: 300px;
+  height: 200px;
+}
+
+.gallery .container .gallery-itself .img-block img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .contacts {

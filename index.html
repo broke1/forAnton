@@ -7,12 +7,15 @@
     <title>Anton</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/fullPage.css">
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" /> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/easings.min.js"></script>
     <script src="js/scrolloverflow.min.js"></script>
     <script src="js/fullPage.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/lightgallery.min.js"></script>
+    <script src="js/lg-thumbnail.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -51,7 +54,16 @@
                 </div>
         </section>
         <section class="gallery section">
-        
+                <div class="zaglushka"></div>
+                <div class="container">
+                        <p class="zagolovok">Моё портфолио</p>
+                        <div id="lightgallery" class="gallery-itself" >
+                                <a :href="img.url" class="img-block" v-for="img in imgs">
+                                    <img :src="img.url">
+                                </a>
+                        </div>
+                        
+                </div>
         </section>
 
         <section class="contacts section">
