@@ -39,7 +39,21 @@ window.addEventListener('load', function() {
 
     })
     
+    $('.scroll-block').jScrollPane();
 
+    
+     
+
+    $('.otzivi-block').slick({
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    });
+
+    document.querySelectorAll('.text-otziv').forEach(item => {
+      $(item).jScrollPane();
+    });
+    
     
     $('#fullpage').fullpage({
          afterLoad: function(origin,index) {
@@ -102,7 +116,10 @@ window.addEventListener('load', function() {
             if (section.classList.contains('gallery')) {
             
               section.querySelector('.zagolovok').classList.add('zagolovok-show');
+              section.querySelector('.scroll-block').classList.add('scroll-block-show');
+              
               $("#lightgallery").lightGallery(); 
+             
               document.querySelector('.gallery-itself').addEventListener("mouseover",function(){
                 document.querySelector('#fullpage').onwheel =  function(event) {
                   event.stopPropagation();
@@ -110,10 +127,35 @@ window.addEventListener('load', function() {
                 };
               });
               document.querySelector('.gallery-itself').addEventListener("mouseout",function(){
-                document.querySelector('#fullpage').onwheel =  function(event) {
+                document.querySelector('#fullpage').onwheel =  function() {
                   document.querySelector('#fullpage').originalEvent;
                 };
               });
+
+            }
+
+            if (section.classList.contains('otzivi')) {
+            
+              section.querySelector('.zagolovok').classList.add('zagolovok-show');
+
+              document.querySelectorAll('.text-otziv').forEach(item => {
+                
+                item.addEventListener("mouseover",function(){
+                  document.querySelector('#fullpage').onwheel =  function(event) {
+                    event.stopPropagation();
+                    
+                  };
+                });
+                item.addEventListener("mouseout",function(){
+                  document.querySelector('#fullpage').onwheel =  function() {
+                    document.querySelector('#fullpage').originalEvent;
+                  };
+                });
+              });
+           
+            
+              
+
 
             }
 
@@ -133,18 +175,16 @@ window.addEventListener('load', function() {
 
             if (section.classList.contains('gallery')) {
               section.querySelector('.zagolovok').classList.remove('zagolovok-show');
+              section.querySelector('.scroll-block').classList.remove('scroll-block-show');
             }
            
+            if (section.classList.contains('otzivi')) {
+            
+              section.querySelector('.zagolovok').classList.remove('zagolovok-show');
+
+            }
         }
 
-
-
-       
-           
-
-       
-        
-        
 
 
 });

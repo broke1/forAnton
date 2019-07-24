@@ -327,7 +327,17 @@ body {
           align-items: center;
 }
 
-.gallery .container .gallery-itself {
+.gallery .container .scroll-block {
+  height: 600px;
+  overflow: scroll;
+  -webkit-transform: translateX(250px);
+          transform: translateX(250px);
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.gallery .container .scroll-block .gallery-itself {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -342,20 +352,158 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   z-index: 1;
-  height: 600px;
-  overflow: scroll;
 }
 
-.gallery .container .gallery-itself .img-block {
+.gallery .container .scroll-block .gallery-itself .img-block {
   width: 300px;
   height: 200px;
 }
 
-.gallery .container .gallery-itself .img-block img {
+.gallery .container .scroll-block .gallery-itself .img-block img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.gallery .container .scroll-block-show {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+  opacity: 1;
+}
+
+.otzivi {
+  background: url("../img/otzivi-fon.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.otzivi .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.otzivi .container .otzivi-block {
+  width: inherit;
+}
+
+.otzivi .container .otzivi-block .otziv-itself {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+}
+
+.otzivi .container .otzivi-block .otziv-itself .img-otziv {
+  width: 200px;
+  height: 250px;
+  margin-bottom: 30px;
+}
+
+.otzivi .container .otzivi-block .otziv-itself .img-otziv img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+
+.otzivi .container .otzivi-block .otziv-itself .name-otziv {
+  color: #ffffff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30px;
+  line-height: 35px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.otzivi .container .otzivi-block .otziv-itself .name-otziv:after {
+  content: '';
+  width: 50%;
+  height: 2px;
+  background: #ffffff;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.otzivi .container .otzivi-block .otziv-itself .text-otziv {
+  height: 250px;
+  overflow: scroll;
+}
+
+.otzivi .container .otzivi-block .otziv-itself .text-otziv p {
+  color: #ffffff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  line-height: 35px;
+}
+
+.otzivi .container .otzivi-block .slick-prev {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  background: transparent;
+  border: none;
+}
+
+.otzivi .container .otzivi-block .slick-prev:before {
+  content: '\f053';
+  font-family: "FontAwesome";
+  color: #ffffff;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-size: 50px;
+  opacity: 0.7;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.otzivi .container .otzivi-block .slick-next {
+  position: absolute;
+  top: 30%;
+  right: 25%;
+  background: transparent;
+  border: none;
+}
+
+.otzivi .container .otzivi-block .slick-next:before {
+  content: '\f054';
+  font-family: "FontAwesome";
+  color: #ffffff;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-size: 50px;
+  opacity: 0.7;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .contacts {
