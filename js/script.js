@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
         
 
     let sections = document.querySelectorAll(".section");
-
+    let menu_links = document.querySelectorAll(".menu-link");
   
     new Vue({
       el: '.circles',
@@ -54,9 +54,13 @@ window.addEventListener('load', function() {
       $(item).jScrollPane();
     });
     
-    
+   
     $('#fullpage').fullpage({
+         anchors: ['about', 'achive', 'gallery', 'otzivi', 'contacts'],
+         menu: '#menu',
+         css3: true,
          afterLoad: function(origin,index) {
+            setWhite(menu_links);
             Scroll(index);
           },
           onLeave (index){
@@ -137,6 +141,7 @@ window.addEventListener('load', function() {
             if (section.classList.contains('otzivi')) {
             
               section.querySelector('.zagolovok').classList.add('zagolovok-show');
+              section.querySelector('.otzivi-block').classList.add('otzivi-block-show');
 
               document.querySelectorAll('.text-otziv').forEach(item => {
                 
@@ -181,6 +186,7 @@ window.addEventListener('load', function() {
             if (section.classList.contains('otzivi')) {
             
               section.querySelector('.zagolovok').classList.remove('zagolovok-show');
+              section.querySelector('.otzivi-block').classList.remove('otzivi-block-show');
 
             }
         }
@@ -222,3 +228,22 @@ function createCircle(canvas,number) {
       return (Math.PI/180)*degrees;
   }
 
+
+  function setWhite(menu_links){
+    let name_page = document.location.hash;
+
+    if (name_page == "#about") {
+       document.querySelector('#menu').style.opacity = '0';
+    } else {
+      document.querySelector('#menu').style.opacity = '0.9';
+    }
+
+    menu_links.forEach(item => {
+        if (name_page.indexOf(item.getAttribute('data-menuanchor')) != -1) {
+           item.querySelector('a').style.background = "#ffffff";
+        } else {
+          item.querySelector('a').style.background = "transparent";
+        }
+    });
+
+  }
