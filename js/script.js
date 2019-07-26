@@ -56,7 +56,7 @@ window.addEventListener('load', function() {
     
    
     $('#fullpage').fullpage({
-         anchors: ['about', 'achive', 'gallery', 'otzivi', 'contacts'],
+         anchors: ['about', 'achive', 'gallery', 'otzivi', 'price', 'contacts'],
          menu: '#menu',
          css3: true,
          afterLoad: function(origin,index) {
@@ -158,9 +158,17 @@ window.addEventListener('load', function() {
                 });
               });
            
-            
-              
 
+            }
+
+
+            if (section.classList.contains('price')) {
+            
+              section.querySelector('.zagolovok').classList.add('zagolovok-show');
+
+              
+            
+           
 
             }
 
@@ -187,6 +195,13 @@ window.addEventListener('load', function() {
             
               section.querySelector('.zagolovok').classList.remove('zagolovok-show');
               section.querySelector('.otzivi-block').classList.remove('otzivi-block-show');
+
+            }
+
+            if (section.classList.contains('price')) {
+            
+              section.querySelector('.zagolovok').classList.remove('zagolovok-show');
+            
 
             }
         }

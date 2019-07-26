@@ -13,6 +13,15 @@ body {
   z-index: 0;
 }
 
+.price .container .price-block .price-item .price-time, .price .container .price-block .price-item .price-place, .price .container .price-block .price-item .price-photo, .price .container .price-block .price-item .price-work, .price .container .price-block .price-item .price-days, .price .container .price-block .price-item .price-tag, .price .container .price-block .price-item .price-tag-under {
+  color: #333;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+  padding: 20px;
+}
+
 .zagolovok {
   font-size: 70px;
   text-align: right;
@@ -598,6 +607,146 @@ body {
   outline: none;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.price {
+  background: url("../img/price-fon.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.price .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.price .container .price-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.price .container .price-block .price-item {
+  width: 300px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0.4;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+.price .container .price-block .price-item .line {
+  position: relative;
+  width: 100%;
+}
+
+.price .container .price-block .price-item .line:after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 70%;
+  height: 1px;
+  background: #333;
+}
+
+.price .container .price-block .price-item .price-name {
+  color: #333;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30px;
+  line-height: 35px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.price .container .price-block .price-item .price-tag {
+  font-size: 30px;
+  padding-top: 40px;
+  position: relative;
+}
+
+.price .container .price-block .price-item .price-tag .fa-ruble {
+  color: #333;
+  font-size: 30px;
+}
+
+.price .container .price-block .price-item .price-tag-under {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 60%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.price .container .price-block .price-item .price-tag-under .fa-ruble {
+  color: #333;
+  font-size: 20px;
+}
+
+.price .container .price-block .price-item .line-cross {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 60%;
+  height: 1px;
+  background: #333;
+  -webkit-transform: translateX(-50%) rotate(-10deg);
+          transform: translateX(-50%) rotate(-10deg);
+}
+
+.price .container .price-block .active-price {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  opacity: 1;
 }
 
 .contacts {
