@@ -38,6 +38,108 @@ window.addEventListener('load', function() {
       }
 
     })
+
+        
+    Vue.component('otziv-items', {
+      props: ['otzivi'],
+      template: `
+      <div class="otziv-itself">
+          <div class="left-side">
+                  <div class="img-otziv">
+                      <img :src="otzivi.img" >
+                  </div>
+                  <div class="name-otziv">{{otzivi.name}}</div>
+              <div class="link-otziv"><a :href="otzivi.url"><span>otzivi.link</span><i class="fa  fa-fw" :class="otzivi.fa"></i></a></div>
+          </div>
+          <div class="right-side">
+                  <div class="text-otziv"><p>{{otzivi.text}}</p></div>
+          </div>
+      </div>
+      `
+    })
+
+
+    new Vue({
+      el: ".otzivi-block",
+      data: {
+        otzivi: [
+          {img:"img/otzivi/img-1.png",name: "Иван и Алина", url:"#", link:"vk.com/alina",fa:"fa-vk", text: `
+          Так не хочется повторяться, столько сказано того, что и мы хотели тебе сказать..., но не повториться не получится...)))
+           Антош, ты настолько позитивный и отдающий полностью себя этой профессии, что мы еще такого не видели)
+           Как большинство пар, мы переживали, чтобы найти хорошего фотографа, свадьба-это ведь такой день..., 
+           в общем с фотографом ни в коем случае нельзя ошибиться) Мы не ошиблись, получили в миллион раз больше чем ожидали! 
+           У нас теперь есть не только офигенные фотография в потрясающем качестве (хочу заметить из более 700 штук, ни одной повторяющейся),
+            мы получили искренне радостную улыбку фотографа! Это так приятно, когда посторонний человек не просто пришел работать, 
+            но и еще радовался вместе с вами)) Все гости в невероятном восторге, потому что вот ты подходишь к людям, чтобы сфоткать,
+             а у них в ответ улыбчивые лица, это непроизвольно, потому что тот позитив, который ты несешь, он необъятен!!!!!))))) 
+             Спасибо тебе огромнейшее за фото, за то дополнительное счастье к нашему празднику, за улыбки на лицах гостей, за приятное общение,
+              за поддержку, за помощь, за подсказки, в те моменты, когда мы может где-то и терялись и за то, что ты такой хороший человечек)
+               СПАСИБО ТЕБЕ ЗА ВСЕ ВСЕ ВСЕ!!! ТЫ ЛУЧШИЙ ФОТОГРАФ!!!
+          `},
+          {img:"img/otzivi/img-1.png",name: "Иван и Алина", url:"#", link:"vk.com/alina",fa:"fa-vk", text: `
+          Так не хочется повторяться, столько сказано того, что и мы хотели тебе сказать..., но не повториться не получится...)))
+           Антош, ты настолько позитивный и отдающий полностью себя этой профессии, что мы еще такого не видели)
+           Как большинство пар, мы переживали, чтобы найти хорошего фотографа, свадьба-это ведь такой день..., 
+           в общем с фотографом ни в коем случае нельзя ошибиться) Мы не ошиблись, получили в миллион раз больше чем ожидали! 
+           У нас теперь есть не только офигенные фотография в потрясающем качестве (хочу заметить из более 700 штук, ни одной повторяющейся),
+            мы получили искренне радостную улыбку фотографа! Это так приятно, когда посторонний человек не просто пришел работать, 
+            но и еще радовался вместе с вами)) Все гости в невероятном восторге, потому что вот ты подходишь к людям, чтобы сфоткать,
+             а у них в ответ улыбчивые лица, это непроизвольно, потому что тот позитив, который ты несешь, он необъятен!!!!!))))) 
+             Спасибо тебе огромнейшее за фото, за то дополнительное счастье к нашему празднику, за улыбки на лицах гостей, за приятное общение,
+              за поддержку, за помощь, за подсказки, в те моменты, когда мы может где-то и терялись и за то, что ты такой хороший человечек)
+               СПАСИБО ТЕБЕ ЗА ВСЕ ВСЕ ВСЕ!!! ТЫ ЛУЧШИЙ ФОТОГРАФ!!!
+          `},
+        ]
+      }
+
+    })
+
+
+    Vue.component('price-items', {
+      props: ['price'],
+      template: `
+        <div class="price-item"  :class="{active_price:price.isActive}">
+            <div class="price-name line">{{price.name}}</div>
+            <div class="price-time line">{{price.time}}</div>
+            <div class="price-place line">{{price.place}}</div>
+            <div class="price-photo line">{{price.place}}</div>
+            <div class="price-work line">{{price.work}}</div>
+            <div class="price-days line">{{price.days}}</div>
+            <div class="price-tag">{{price.price_tag}}<i class="fa fa-ruble fa-fw"></i>
+                            <div class="line-cross" v-if="price.seen"></div>
+                            <div class="price-tag-under" v-if="price.seen">{{price.price_tag_under}}<i class="fa fa-ruble fa-fw"></i></div> 
+            </div>
+        </div>
+      `
+    })
+
+
+    new Vue({
+      el: ".price-block",
+      data: {
+        price_list: [
+          {name:"Бомж",time:"1 час съемки",place:'Выезд',photo:'100 фото',work:'Photoshop',days:'3 дня',price_tag:"10 000",seen:false,price_tag_under:"", isActive:false},
+          {name:"Рабочий",time:"2 часа съемки",place:'Выезд',photo:'150 фото',work:'Photoshop + молитвы',days:'7 дней',price_tag:"15 000",seen:true,price_tag_under:"17 000", isActive:true},
+          {name:"Депутат",time:"3.5 часа съемки",place:'Выезд  + студия',photo:'300 фото',work:'Photoshop + магия',days:'14 дней',price_tag:"25 000",seen:false,price_tag_under:"",isActive:false},
+        ]
+      }
+
+    })
+
+
+    new Vue({
+      el: ".contact-block",
+      data: {
+        contact: [
+          {url:"tel:+79233453445",link:"+7 (923) 345-34-45",fa_class:'fa-phone'},
+          {url:"mailto:anton@yandex.ru",link:"anton@yandex.ru",fa_class:'fa-envelope'},
+          {url:"vk.ru/anton",link:"vk.ru/anton",fa_class:'fa-vk'},
+          {url:"twitter.ru/anton",link:"twitter.ru/anton",fa_class:'fa-twitter'},
+          {url:"instagram.ru/anton",link:"instagram.ru/anton",fa_class:'fa-instagram'},
+        ]
+      }
+
+    })
     
     $('.scroll-block').jScrollPane();
 
@@ -166,12 +268,25 @@ window.addEventListener('load', function() {
             
               section.querySelector('.zagolovok').classList.add('zagolovok-show');
 
-              
-            
-           
+      
+                     document.querySelectorAll('.price-item').forEach(item => {
+                              item.addEventListener('click', () => {
+                                 document.querySelectorAll('.price-item').forEach(items => {
+                                     items.classList.remove('active_price');
+                                 });
+                                 item.classList.add('active_price');
+                              });
+                     });
+             
 
             }
 
+            if (section.classList.contains('contacts')) {
+                section.querySelector('.zagolovok').classList.add('zagolovok-show');
+                section.querySelector('.contact-block').classList.add('contact-block-show');
+          
+
+            }
 
         },300);
 
@@ -201,8 +316,12 @@ window.addEventListener('load', function() {
             if (section.classList.contains('price')) {
             
               section.querySelector('.zagolovok').classList.remove('zagolovok-show');
-            
+            }
 
+            if (section.classList.contains('contacts')) {
+
+              section.querySelector('.zagolovok').classList.remove('zagolovok-show');
+              section.querySelector('.contact-block').classList.remove('contact-block-show');
             }
         }
 

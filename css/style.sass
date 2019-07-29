@@ -478,6 +478,7 @@ $transition: all 0.5s ease
                 z-index: 1
                 position: relative
                 cursor: pointer
+                margin-right: 2px
 
                 .line
                     position: relative
@@ -553,14 +554,73 @@ $transition: all 0.5s ease
                     height: 1px
                     background: #333
                     transform: translateX(-50%) rotate(-10deg)
+                    
 
-
-
-            .active-price
+            .active_price
                 transform: scale(1.1)
                 opacity: 1
 
 
 
 .contacts
-    background-color: black
+    background: url("../img/contacts-fon.png")
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    position: relative 
+
+    .container
+        display: flex
+        flex-flow: column nowrap
+        justify-content: flex-start
+        align-items: center
+
+        .contact-block
+            display: flex
+            flex-flow: column nowrap
+            justify-content: flex-start
+            align-items: flex-start
+            width: 400px
+            margin: 0 auto
+
+
+            .contact-link
+                display: block
+                color: #fff
+                font-family: 'Ubuntu', sans-serif
+                font-size: 35px
+                line-height: 35px 
+                margin: 20px 0
+                cursor: pointer
+                text-decoration: none
+                z-index: 1
+                opacity: 0
+                transform: translateX(-200px)
+
+                i
+                    margin-right: 30px
+
+                &:nth-child(1)
+                    transition: $transition 0.2s
+                    
+
+                &:nth-child(2)
+                    transition: $transition 0.4s
+                    
+                &:nth-child(3)
+                    transition: $transition 0.6s
+
+                &:nth-child(4)
+                    transition: $transition 0.8s
+                    
+                &:nth-child(5)
+                    transition: $transition 1s
+
+
+        .contact-block-show
+
+            .contact-link
+                opacity: 1
+                transform: translateX(0px)
+
+

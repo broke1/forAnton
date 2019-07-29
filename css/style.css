@@ -673,6 +673,7 @@ body {
   z-index: 1;
   position: relative;
   cursor: pointer;
+  margin-right: 2px;
 }
 
 .price .container .price-block .price-item .line {
@@ -743,13 +744,101 @@ body {
           transform: translateX(-50%) rotate(-10deg);
 }
 
-.price .container .price-block .active-price {
+.price .container .price-block .active_price {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   opacity: 1;
 }
 
 .contacts {
-  background-color: black;
+  background: url("../img/contacts-fon.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.contacts .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contacts .container .contact-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.contacts .container .contact-block .contact-link {
+  display: block;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 35px;
+  line-height: 35px;
+  margin: 20px 0;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
+}
+
+.contacts .container .contact-block .contact-link i {
+  margin-right: 30px;
+}
+
+.contacts .container .contact-block .contact-link:nth-child(1) {
+  -webkit-transition: all 0.5s ease 0.2s;
+  transition: all 0.5s ease 0.2s;
+}
+
+.contacts .container .contact-block .contact-link:nth-child(2) {
+  -webkit-transition: all 0.5s ease 0.4s;
+  transition: all 0.5s ease 0.4s;
+}
+
+.contacts .container .contact-block .contact-link:nth-child(3) {
+  -webkit-transition: all 0.5s ease 0.6s;
+  transition: all 0.5s ease 0.6s;
+}
+
+.contacts .container .contact-block .contact-link:nth-child(4) {
+  -webkit-transition: all 0.5s ease 0.8s;
+  transition: all 0.5s ease 0.8s;
+}
+
+.contacts .container .contact-block .contact-link:nth-child(5) {
+  -webkit-transition: all 0.5s ease 1s;
+  transition: all 0.5s ease 1s;
+}
+
+.contacts .container .contact-block-show .contact-link {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
 }
 /*# sourceMappingURL=style.css.map */

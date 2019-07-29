@@ -71,7 +71,7 @@
         <section class="gallery section" data-anchor="gallery">
                 <div class="zaglushka"></div>
                 <div class="container">
-                        <p class="zagolovok">Моё портфолио</p>
+                        <p class="zagolovok">Портфолио</p>
                         <div class="scroll-block">
                             <div id="lightgallery" class="gallery-itself" >
                                 <a :href="img.url" class="img-block" v-for="img in imgs">
@@ -85,33 +85,10 @@
         <section class="otzivi section" data-anchor="otzivi">
             <div class="zaglushka"></div>
             <div class="container">
-                    <p class="zagolovok">Отзывы обо мне</p>
+                    <p class="zagolovok">Отзывы</p>
                     <div class="otzivi-block">
-                        <div class="otziv-itself">
-                            <div class="left-side">
-                                    <div class="img-otziv">
-                                        <img src="img/otzivi/img-1.png" >
-                                    </div>
-                                    <div class="name-otziv">Иван и Алина</div>
-                                <div class="link-otziv"><a href="#"><span>vk.com/alina</span><i class="fa fa-vk fa-fw"></i></a></div>
-                            </div>
-                            <div class="right-side">
-                                    <div class="text-otziv"><p>Так не хочется повторяться, столько сказано того, что и мы хотели тебе сказать..., но не повториться не получится...))) Антош, ты настолько позитивный и отдающий полностью себя этой профессии, что мы еще такого не видели)Как большинство пар, мы переживали, чтобы найти хорошего фотографа, свадьба-это ведь такой день..., в общем с фотографом ни в коем случае нельзя ошибиться) Мы не ошиблись, получили в миллион раз больше чем ожидали! У нас теперь есть не только офигенные фотография в потрясающем качестве (хочу заметить из более 700 штук, ни одной повторяющейся), мы получили искренне радостную улыбку фотографа! Это так приятно, когда посторонний человек не просто пришел работать, но и еще радовался вместе с вами)) Все гости в невероятном восторге, потому что вот ты подходишь к людям, чтобы сфоткать, а у них в ответ улыбчивые лица, это непроизвольно, потому что тот позитив, который ты несешь, он необъятен!!!!!))))) Спасибо тебе огромнейшее за фото, за то дополнительное счастье к нашему празднику, за улыбки на лицах гостей, за приятное общение, за поддержку, за помощь, за подсказки, в те моменты, когда мы может где-то и терялись и за то, что ты такой хороший человечек) СПАСИБО ТЕБЕ ЗА ВСЕ ВСЕ ВСЕ!!! ТЫ ЛУЧШИЙ ФОТОГРАФ!!!</p></div>
-                            </div>
-                        </div>
-                        <div class="otziv-itself">
-                                <div class="left-side">
-                                        <div class="img-otziv">
-                                            <img src="img/otzivi/img-1.png" >
-                                        </div>
-                                        <div class="name-otziv">Иван и Алина</div>
-                                    <div class="link-otziv"><a href="#"><span>vk.com/alina</span><i class="fa fa-vk fa-fw"></i></a></div>
-                                </div>
-                                <div class="right-side">
-                                        <div class="text-otziv"><p>Так не хочется повторяться, столько сказано того, что и мы хотели тебе сказать..., но не повториться не получится...))) Антош, ты настолько позитивный и отдающий полностью себя этой профессии, что мы еще такого не видели)Как большинство пар, мы переживали, чтобы найти хорошего фотографа, свадьба-это ведь такой день..., в общем с фотографом ни в коем случае нельзя ошибиться) Мы не ошиблись, получили в миллион раз больше чем ожидали! У нас теперь есть не только офигенные фотография в потрясающем качестве (хочу заметить из более 700 штук, ни одной повторяющейся), мы получили искренне радостную улыбку фотографа! Это так приятно, когда посторонний человек не просто пришел работать, но и еще радовался вместе с вами)) Все гости в невероятном восторге, потому что вот ты подходишь к людям, чтобы сфоткать, а у них в ответ улыбчивые лица, это непроизвольно, потому что тот позитив, который ты несешь, он необъятен!!!!!))))) Спасибо тебе огромнейшее за фото, за то дополнительное счастье к нашему празднику, за улыбки на лицах гостей, за приятное общение, за поддержку, за помощь, за подсказки, в те моменты, когда мы может где-то и терялись и за то, что ты такой хороший человечек) СПАСИБО ТЕБЕ ЗА ВСЕ ВСЕ ВСЕ!!! ТЫ ЛУЧШИЙ ФОТОГРАФ!!!</p></div>
-                                </div>
-                            </div>
-                       
+                       <otziv-items v-for="item in otzivi" :otzivi="item"></otziv-items>
+                    
                     </div>
             </div>
         </section>
@@ -121,45 +98,22 @@
             <div class="container">
                     <p class="zagolovok">Пакеты услуг</p>
                     <div class="price-block">
-                      <div class="price-item">
-                          <div class="price-name line">Бомж</div>
-                          <div class="price-time line">1 час съемки</div>
-                          <div class="price-place line">Выезд</div>
-                          <div class="price-photo line">100 фото</div>
-                          <div class="price-work line">Photoshop</div>
-                          <div class="price-days line">3 дня</div>
-                          <div class="price-tag">10 000<i class="fa fa-ruble fa-fw"></i></div>
-                      </div>
 
-                      <div class="price-item active-price">
-                        <div class="price-name line">Рабочий</div>
-                        <div class="price-time line">2 часа съемки</div>
-                        <div class="price-place line">Выезд</div>
-                        <div class="price-photo line">150 фото</div>
-                        <div class="price-work line">Photoshop + молитвы</div>
-                        <div class="price-days line">7 дней</div>
-                        <div class="price-tag">15 000<i class="fa fa-ruble fa-fw"></i>
-                            <div class="line-cross"></div>
-                            <div class="price-tag-under">17 000<i class="fa fa-ruble fa-fw"></i></div> 
-                        </div>
-                    </div>
+                        <price-items v-for="item in price_list" :price="item"></price-items>
 
-                    <div class="price-item"> 
-                        <div class="price-name line">Депутат</div>
-                        <div class="price-time line">3.5 часа съемки</div>
-                        <div class="price-place line">Выезд + студия</div>
-                        <div class="price-photo line">300 фото</div>
-                        <div class="price-work line">Photoshop + магия</div> 
-                        <div class="price-days line">14 дней</div>
-                        <div class="price-tag">25 000<i class="fa fa-ruble fa-fw"></i></div>
-                    </div>
                        
                     </div>
             </div>
         </section>
 
         <section class="contacts section" data-anchor="contacts">
-            
+            <div class="zaglushka"></div>
+            <div class="container">
+                    <p class="zagolovok">Контакты</p>
+                    <div class="contact-block">
+                        <a :href="contact.url" v-for="contact in contact" class="contact-link"><i class="fa  fa-fw" :class="contact.fa_class"></i>{{contact.link}}</a>
+                    </div>
+            </div>
         </section>
    
       </div>
