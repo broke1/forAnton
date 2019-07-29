@@ -90,6 +90,9 @@ window.addEventListener('load', function() {
                СПАСИБО ТЕБЕ ЗА ВСЕ ВСЕ ВСЕ!!! ТЫ ЛУЧШИЙ ФОТОГРАФ!!!
           `},
         ]
+      },
+      mounted: function(){
+          document.querySelector('.preloader').style.height = "0vh";
       }
 
     })
