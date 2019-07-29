@@ -369,7 +369,7 @@ function createCircle(canvas,number) {
   function setWhite(menu_links){
     let name_page = document.location.hash;
 
-    if (name_page == "#about") {
+    if (name_page == "#about" || name_page == "") {
        document.querySelector('#menu').style.opacity = '0';
     } else {
       document.querySelector('#menu').style.opacity = '0.9';
