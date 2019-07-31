@@ -5,7 +5,8 @@ window.addEventListener('load', function() {
         
 
     let sections = document.querySelectorAll(".section");
-    let menu_links = document.querySelectorAll(".menu-link");
+    let main_menu = document.querySelector(".main-menu");
+    //let menu_links = document.querySelectorAll(".menu-link");
   
     new Vue({
       el: '.circles',
@@ -143,6 +144,117 @@ window.addEventListener('load', function() {
       }
 
     })
+
+
+    Vue.component('modal-form', {
+      props: ['settings'],
+      template: `
+        <div class="modal-form">
+            <div class="shadow-back"></div>
+            <div class="modal-form-itself">
+                <form action="/send/send.php" name="modal">
+                    <div class="close-btn">X</div>
+                    <p class="zagolovok-form">{{settings.zagolovok}}</p>
+                    <input type="hidden" name="name_form" v-bind:value="settings.hidden" class="form-item">
+                    <input type="text" name="name" placeholder="Ваше имя" class="form-item">
+                    <input type="text" name="phone" class="phone-form-modal form-item"  placeholder="+7 (___) ___-__-__ " >
+                    <textarea rows="7" cols="42" v-if="settings.textarea"   name="otziv" class="form-item" :placeholder="settings.textarea_placeholder"></textarea>
+                    <div class="form-group modal-file form-item" v-if="settings.file"  >
+                        <label for="modal__file" class="textover">Файл не загружен</label>
+                        <input type="file" id="modal__file" name="file"   value=""></input>
+                    </div>
+                    <div class="accept-block">
+                        <input id="accept-modal" type="checkbox" name="accept" value="male">
+                        <label for="accept-modal">Я разрешаю обработку моих персональных данных</label>
+                    </div> 
+                    <div class="description-accept hide">Согласитесь с обработкой данных</div>
+                    <div  class="button-send-modal  form-item" >Отправить</div>
+                </form>
+                <div class="description hide">{{settings.description}}</div>
+            </div>
+        </div>
+      `
+    })
+
+   new Vue({
+        el: '.otzivi-form',
+        data: {
+          settings: 
+              { 
+                zagolovok: "Оставьте свой отзыв и скоро он появится на сайте",
+                description: 'Ваш отзыв отправлен',
+                hidden : 'otzivi',
+                textarea: true,
+                textarea_placeholder: "Ваш отзыв",
+                file: true
+              },
+        },
+          mounted: function () {
+            $(".phone-form-modal").mask("+7 (999) 999-99-99");
+          }
+    })
+
+
+    document.querySelector(".btn-otzivi").addEventListener('click', () => {
+
+      
+      document.querySelector('.modal-form form').reset();
+      if(document.querySelector('.modal-file label')) {
+         document.querySelector('.modal-file label').innerHTML = "Файл не выбран"; 
+      }
+      document.querySelector('.modal-form .description').classList.add('hide');
+      document.querySelector('.modal-form form').classList.remove('hide');
+      document.querySelector('.modal-form').style.visibility = "visible";
+      document.querySelector('.modal-form').style.opacity = "1";
+
+    });
+
+    document.querySelector('input[type=file]').addEventListener('change', ()=>{
+      let value = document.querySelector('input[type=file]').value.split ('/');
+      if (value.length == 1){
+        value = document.querySelector('input[type=file]').value.split ('\\').pop();
+      };
+        document.querySelector('.modal-file label').innerHTML = value;
+ });
+
+
+
+ 
+ document.querySelector('.modal-form .close-btn').addEventListener('click', () => { 
+          document.querySelector('.modal-form').style.opacity = "0";
+          document.querySelector('.modal-form').style.visibility = "hidden";
+ });
+ 
+ document.querySelector('.modal-form .shadow-back').addEventListener('click', () => { 
+        document.querySelector('.modal-form').style.opacity = "0";
+        document.querySelector('.modal-form').style.visibility = "hidden";
+  });
+
+
+ document.querySelector('.modal-form .button-send-modal').addEventListener('click', () => {
+     
+          let parrent = event.target.parentElement;
+
+          let accept = parrent.querySelector('input[type="checkbox"]');
+          let description = parrent.parentElement.querySelector('.description-accept');
+           if (accept.checked) { 
+               
+            sendModal(document.forms.modal);
+             }  else {
+              description.classList.remove('hide');
+              setTimeout(() =>{
+                description.classList.add('hide');
+                    }, 2000);
+            }
+
+
+        });
+
+
+    
+
+       
+
     
     $('.scroll-block').jScrollPane();
 
@@ -165,7 +277,7 @@ window.addEventListener('load', function() {
          menu: '#menu',
          css3: true,
          afterLoad: function(origin,index) {
-            setWhite(menu_links);
+           // setWhite(menu_links);
             Scroll(index);
           },
           onLeave (index){
@@ -196,13 +308,17 @@ window.addEventListener('load', function() {
             if (section.classList.contains('achive')) {
              
                 
-                section.querySelector('.vspishka').classList.add('vspishka-show');
-                setTimeout(()=>{
-                  section.querySelector('.img-block-2').classList.add('img-block-2-show');
+                // section.querySelector('.vspishka').classList.add('vspishka-show');
+                // setTimeout(()=>{
+                //   section.querySelector('.img-block-2').classList.add('img-block-2-show');
                  
-                },300);
+                // },300);
+
+                main_menu.style.opacity = '1';
 
                 setTimeout(()=>{
+
+
 
                   canvas.forEach(item => {
 
@@ -223,6 +339,8 @@ window.addEventListener('load', function() {
             }
 
             if (section.classList.contains('gallery')) {
+
+              main_menu.style.opacity = '1';
             
               section.querySelector('.zagolovok').classList.add('zagolovok-show');
               section.querySelector('.scroll-block').classList.add('scroll-block-show');
@@ -244,9 +362,13 @@ window.addEventListener('load', function() {
             }
 
             if (section.classList.contains('otzivi')) {
+
+              main_menu.style.opacity = '1';
             
               section.querySelector('.zagolovok').classList.add('zagolovok-show');
               section.querySelector('.otzivi-block').classList.add('otzivi-block-show');
+              section.querySelector('.btn-otzivi').classList.add('btn-otzivi-show');
+              
 
               document.querySelectorAll('.text-otziv').forEach(item => {
                 
@@ -268,6 +390,8 @@ window.addEventListener('load', function() {
 
 
             if (section.classList.contains('price')) {
+
+              main_menu.style.opacity = '1';
             
               section.querySelector('.zagolovok').classList.add('zagolovok-show');
 
@@ -285,6 +409,9 @@ window.addEventListener('load', function() {
             }
 
             if (section.classList.contains('contacts')) {
+
+                main_menu.style.opacity = '1'; 
+
                 section.querySelector('.zagolovok').classList.add('zagolovok-show');
                 section.querySelector('.contact-block').classList.add('contact-block-show');
           
@@ -313,6 +440,7 @@ window.addEventListener('load', function() {
             
               section.querySelector('.zagolovok').classList.remove('zagolovok-show');
               section.querySelector('.otzivi-block').classList.remove('otzivi-block-show');
+              section.querySelector('.btn-otzivi').classList.remove('btn-otzivi-show');
 
             }
 
@@ -366,21 +494,64 @@ function createCircle(canvas,number) {
   }
 
 
-  function setWhite(menu_links){
-    let name_page = document.location.hash;
+  // function setWhite(menu_links){
+  //   let name_page = document.location.hash;
 
-    if (name_page == "#about" || name_page == "") {
-       document.querySelector('#menu').style.opacity = '0';
+  //   if (name_page == "#about" || name_page == "") {
+  //      document.querySelector('#menu').style.opacity = '0';
+  //   } else {
+  //     document.querySelector('#menu').style.opacity = '0.9';
+  //   }
+
+  //   menu_links.forEach(item => {
+  //       if (name_page.indexOf(item.getAttribute('data-menuanchor')) != -1) {
+  //          item.querySelector('a').style.background = "#ffffff";
+  //       } else {
+  //         item.querySelector('a').style.background = "transparent";
+  //       }
+  //   });
+
+  // }
+
+  function sendModal(form) {
+
+
+             
+    var formData = new FormData(form);
+
+
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/send/send.php");
+    xhr.send(formData);
+
+    xhr.onreadystatechange = function() {
+    if (this.readyState != 4) return;
+
+    if (this.status != 200) {
+    console.log( 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался') );
+
+    document.querySelector('.modal-form .description').classList.remove('hide');
+    document.querySelector('.modal-form form').classList.add('hide');
+    setTimeout(()=>{
+        document.querySelector('.modal-form').style.opacity = "0";
+        document.querySelector('.modal-form').style.visibility = "hidden";
+    }, 1500);
+
+
+    return;
     } else {
-      document.querySelector('#menu').style.opacity = '0.9';
+     // console.log(this.responseText);
+
+      document.querySelector('.modal-form .description').classList.remove('hide');
+      document.querySelector('.modal-form form').classList.add('hide');
+      setTimeout(()=>{
+          document.querySelector('.modal-form').style.opacity = "0";
+          document.querySelector('.modal-form').style.visibility = "hidden";
+      }, 800);
+
     }
 
-    menu_links.forEach(item => {
-        if (name_page.indexOf(item.getAttribute('data-menuanchor')) != -1) {
-           item.querySelector('a').style.background = "#ffffff";
-        } else {
-          item.querySelector('a').style.background = "transparent";
-        }
-    });
-
-  }
+    }
+}

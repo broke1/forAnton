@@ -26,6 +26,8 @@ body
 
 $transition: all 0.5s ease
 
+$vk: #4d7198
+
 .zagolovok
     font-size: 70px
     text-align: right
@@ -134,33 +136,35 @@ $transition: all 0.5s ease
     background-repeat: no-repeat
     position: relative
 
-    .vspishka
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 0vh
-        background: #ffffff
-        opacity: 0
 
-    .vspishka-show
-        animation: vspishka 0.2s ease 0s 
-        @keyframes vspishka
-            0% 
-                opacity: 0
-                height: 0%
-            1%
-                opacity: 0
-                height: 100%
-            50%
-                opacity: 0.8
-                height: 100%
-            99%
-                opacity: 0  
-                height: 100%
-            100%
-                opacity: 0  
-                height: 0%
+
+    // .vspishka
+    //     position: absolute
+    //     top: 0
+    //     left: 0
+    //     width: 100%
+    //     height: 0vh
+    //     background: #ffffff
+    //     opacity: 0
+
+    // .vspishka-show
+    //     animation: vspishka 0.2s ease 0s 
+    //     @keyframes vspishka
+    //         0% 
+    //             opacity: 0
+    //             height: 0%
+    //         1%
+    //             opacity: 0
+    //             height: 100%
+    //         50%
+    //             opacity: 0.8
+    //             height: 100%
+    //         99%
+    //             opacity: 0  
+    //             height: 100%
+    //         100%
+    //             opacity: 0  
+    //             height: 0%
 
     .container
         display: flex
@@ -168,20 +172,20 @@ $transition: all 0.5s ease
         justify-content: center
         align-items: flex-start
 
-        .img-block-2
-            width: 700px
-            margin: 0 auto
-            z-index: 1
-            opacity: 0
-            transition: all 3s ease
+        // .img-block-2
+        //     width: 700px
+        //     margin: 0 auto
+        //     z-index: 1
+        //     opacity: 0
+        //     transition: all 3s ease
 
-            img
-                width: 100%
-                height: 100%
-                object-fit: cover
+        //     img
+        //         width: 100%
+        //         height: 100%
+        //         object-fit: cover
 
-        .img-block-2-show
-            opacity: 1
+        // .img-block-2-show
+        //     opacity: 1
 
         .circles
             display: flex
@@ -281,6 +285,33 @@ $transition: all 0.5s ease
         flex-flow: column nowrap
         justify-content: flex-start
         align-items: center
+        position: relative
+
+        .btn-otzivi
+            position: absolute
+            top: 90px
+            left: 50px
+            color: #ffffff
+            font-family: 'Ubuntu', sans-serif
+            font-size: 22px
+            z-index: 1
+            padding: 15px 20px
+            line-height: 30px
+            transition: $transition
+            border-radius: 5px
+            border: 2px solid #fff
+            cursor: pointer
+            opacity: 0
+            transform: translateX(-200px)
+
+            &:hover
+                background: #fff
+                color: #333
+
+        .btn-otzivi-show
+            opacity: 1
+            transform: translateX(0px)
+
        
         .otzivi-block
             width: inherit
@@ -335,7 +366,7 @@ $transition: all 0.5s ease
                     .link-otziv
                         width: 320px
                         height: 50px
-                        background-color: #4d7198
+                        background-color: $vk
                         padding: 5px 15px
                         margin-right: 50px
                         border-radius: 0 5px 5px 0
@@ -418,31 +449,6 @@ $transition: all 0.5s ease
         .otzivi-block-show  
             opacity: 1              
                         
-#menu
-    dipslay: flex
-    flex-flow: column nowrap
-    justify-content: center
-    align-items: center
-    position: fixed
-    top: 30%
-    right: 50px
-    z-index: 1
-    opacity: 0
-    transition: $transition
-
-    .menu-link
-
-        a
-            display: block
-            width: 20px
-            height: 20px
-            border: 2px solid #ffffff
-            background: transparent
-            margin-bottom: 20px
-            border-radius: 50px
-            cursor: pointer
-            outline: none
-            transition: $transition
 
 
 .price
@@ -640,6 +646,378 @@ $transition: all 0.5s ease
     overflow: hidden
 
     .preloader-block
+        width: 70px
+        height: 70px
 
-      width: 70px
-      height: 70px
+.modal-form
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 3
+    opacity: 0
+    visibility: hidden
+    transition: $transition
+
+    .shadow-back
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background: rgba(0,0,0,0.7)
+
+    .modal-form-itself
+        width: 600px
+        height: auto
+        min-height: 60px
+        border-radius: 5px
+        background: #ffffff
+        padding: 30px
+        padding-top: 40px
+        position: absolute
+        top: 12%
+        left: 50%
+        transform: translateX(-50%)
+        z-index: 4
+
+        @media screen and (max-width: 430px)
+            width: 90vw
+
+        @media screen and (max-width: 380px)
+            width: 96vw
+
+        .close-btn
+            position: absolute
+            top: 5px
+            right: 5px
+            width: 20px
+            height: 20px;
+            border-radius: 50px
+            border: 3px solid $vk
+            padding: 5px 0 3px 9px
+            cursor: pointer
+
+        form
+            display: flex
+            flex-flow: row nowrap
+            align-items: center
+            flex-flow: column nowrap
+            justify-content: flex-start
+            position: relative
+            transition: $transition
+            height: auto
+            border: 1px solid $vk
+            position: relative
+            padding: 10px
+            padding-top: 40px
+
+            @media screen and (max-width: 380px)
+                max-height: 77vh
+
+            .zagolovok-form
+                font-family: 'Montserrat', sans-serif
+                font-weight: bold
+                font-size: 20px
+                line-height: 120%
+                text-align: center
+                color: #000000
+                background-color: #ffffff
+                width: 60%
+                position: absolute
+                top: -35px
+                left: 50%
+                transform: translateX(-50%)
+
+                @media screen and (max-width: 430px)
+                    font-size: 18px
+
+                @media screen and (max-width: 380px)
+                    font-size: 14px
+
+            .form-item
+                margin: 10px 0
+
+            input
+                font-family: 'Ubuntu', sans-serif
+                font-size: 18px
+                line-height: 180%
+                color: #333333
+                padding: 5px
+                width: 300px
+                border: 1px solid darkgray
+
+                @media screen and (max-width: 330px)
+                    width: 260px
+
+            textarea
+                border-radius: 5px
+                border: 1px solid rgb(169, 169, 169)
+                width: 300px
+                font-family: 'Ubuntu', sans-serif
+                font-size: 18px
+                line-height: 180%
+                color: #333333
+                padding: 5px
+                height: 150px
+                overflow: scroll
+
+                @media screen and (max-width: 430px)
+                    height: 120px
+
+                @media screen and (max-width: 330px)
+                    width: 260px
+
+
+            .button-send-modal
+                display: flex
+                flex-flow: column 
+                justify-content: center
+                align-items: center
+                width: 240px
+                height: 60px
+                color: #ffffff
+                border-radius: 5px
+                font-family: 'Ubuntu', sans-serif
+                font-weight: bold
+                font-size: 20px
+                line-height: 120%
+                background: $vk
+                border: 2px solid $vk
+                margin:  0 auto 
+                box-shadow:  0px 4px 4px rgba(0, 0, 0, 0.25)
+                cursor: pointer
+                transition: $transition
+
+                &:hover
+                    background: #ffffff
+                    border: 2px solid $vk
+                    color: #333
+
+                @media screen and (max-width: 330px)
+                    min-height: 50px
+            
+
+            .modal-file
+                position: relative
+                width: 305px
+
+                @media screen and (max-width: 330px)
+                    width: 270px
+
+                label
+                    position: absolute
+                    top: 2%
+                    right: 0
+                    width: 195px
+                    height: 96%
+                    background: #ffffff
+                    font-family: 'Ubuntu', sans-serif
+                    font-size: 18px
+                    line-height: 180%
+                    color: #333333  
+                    display: flex
+                    align-items: center
+                    justify-content: center
+
+                    @media screen and (max-width: 330px)
+                        width: 160px
+                        font-size: 15px
+ 
+
+                    &:after 
+                        text-align: center
+                        content: "Выберите файл"
+                        top: 0
+                        left: -115px
+                        width: 115px
+                        height: 100%
+                        color: white 
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        background-color: $vk
+                        cursor: pointer
+                        visibility: visible
+                        position: absolute
+                        font-family: 'Ubuntu', sans-serif
+                        font-size: 14px
+                        line-height: 180%
+                        border-radius: 5px
+
+
+                        @media screen and (max-width: 330px)
+                            font-size: 12px
+
+            .accept-block
+                margin-top: 10px
+
+                input[type=checkbox] 
+                    display: none
+                    width: 10px
+
+                    &:checked + label
+
+                        &:before
+                            border-right: none
+                            border-top: none
+                            transform: rotate(-50deg)
+                            top: 2px
+                            left: 2px
+                            height: 5px
+
+                input[type=checkbox] + label
+                    font-family: 'Ubuntu', sans-serif
+                    font-size: 14px
+                    line-height: 140%
+                    color: #333333
+                    padding-left: 30px
+                    position: relative
+
+                    @media screen and (max-width: 330px)
+                        font-size: 13px
+
+                    &:before
+                        content: ''
+                        position: absolute
+                        top: 0
+                        left: 0
+                        width: 10px;
+                        height: 10px;
+                        border: 2px solid #333333
+                        transition: $transition
+
+            .description-accept
+                font-family: 'Ubuntu', sans-serif
+                font-size: 15px
+                line-height: 180%
+                margin: 30px 0
+                text-align: center
+                transition: $transition
+                opacity: 1
+                width: 100%
+                height: 30px
+
+
+            .hide 
+                opacity: 0
+                height: 0px
+
+        @media screen and (max-width: 1000px)
+            top: 7%
+
+        .description
+                font-family: 'Ubuntu', sans-serif
+                font-size: 25px
+                text-align: center
+                line-height: 180%
+                color: #333333
+                transition: $transition
+                margin: 50px auto
+
+        .hide 
+                opacity: 0
+                visibility: hidden
+                margin: 0
+                height: 0 !important
+                padding: 0
+
+.main-menu
+    position: fixed
+    z-index: 1
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    background: rgba(255,255,255,0.2)
+    padding: 5px
+    display: flex
+    flex-flow: row nowrap
+    justify-content: center
+    align-items: center
+    transition: $transition
+    opacity: 0
+
+    #menu
+        display: flex
+        flex-flow: row nowrap
+        justify-content: center
+        align-items: center
+        transition: $transition
+
+        .menu-link
+            border-right: 2px solid #fff
+            position: relative
+            transition: $transition
+
+            a
+                display: block
+                background: transparent
+                cursor: pointer
+                outline: none
+                transition: $transition
+                color: #fff
+                font-family: 'Ubuntu', sans-serif
+                font-size: 18px
+                line-height: 30px
+                text-decoration: none
+                padding: 0 10px
+                white-space: nowrap
+                
+                
+            &:after
+                content: ''
+                width: 0%
+                height: 2px
+                background: #fff
+                position: absolute
+                bottom: 0
+                left: 0
+                transition: $transition
+
+            &:hover
+
+                &:after
+                    width: 100%
+
+            &:last-child 
+                border-right: none
+                margin-right: 5px
+
+            &:first-child
+
+                &:after
+                    left: auto
+                    right: 0
+
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: -44px
+        border: 22px solid transparent
+        border-top: 22px solid rgba(255,255,255,0.2)
+        border-right: 22px solid rgba(255,255,255,0.2)
+
+    &:after
+        content: ''
+        position: absolute
+        top: 0
+        right: -43px
+        border: 22px solid transparent
+        border-left: 22px solid rgba(255,255,255,0.2)
+        border-top: 22px solid rgba(255,255,255,0.2)
+            
+    .menu-contacts
+        display: block
+        margin-left: 10px
+        border-radius: 50%
+        border: 2px solid #ffffff
+        padding: 5px
+
+        .fa
+            font-size: 15px
+            color: #fff
+        
+
+           

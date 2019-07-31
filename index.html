@@ -21,20 +21,23 @@
     <script src="js/jscrollpane.js"></script>
     <script src="js/mousewheel.js"></script>
     <script src="js/slick.min.js"></script>
+    <script assync src="js/jquery.maskedinput.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
-    <artical>
+    <artical class="main-menu">
         <div id="menu">
-            <div class="menu-link" data-menuanchor="about"><a href="#about"></a></div>
-            <div class="menu-link" data-menuanchor="achive"><a href="#achive"></a></div>
-            <div class="menu-link" data-menuanchor="gallery"><a href="#gallery"></a></div>
-            <div class="menu-link" data-menuanchor="otzivi"><a href="#otzivi"></a></div>
-            <div class="menu-link" data-menuanchor="price"><a href="#price"></a></div>
-            <div class="menu-link" data-menuanchor="contacts"><a href="#contacts"></a></div>
+            <div class="menu-link" data-menuanchor="about"><a href="#about">Обо мне</a></div>
+            <div class="menu-link" data-menuanchor="achive"><a href="#achive">Достижения</a></div>
+            <div class="menu-link" data-menuanchor="gallery"><a href="#gallery">Галерея</a></div>
+            <div class="menu-link" data-menuanchor="otzivi"><a href="#otzivi">Отзывы</a></div>
+            <div class="menu-link" data-menuanchor="price"><a href="#price">Прайс-лист</a></div>
+            <div class="menu-link" data-menuanchor="contacts"><a href="#contacts">Контакты</a></div>
         </div>
+        <a href="tel:+79233453445" class="menu-contacts"><i class="fa  fa-fw fa-phone"></i></a>
+        <a href="https://vk.ru/anton" class="menu-contacts"><i class="fa  fa-fw fa-vk"></i></a>
     </artical>
     <div id="fullpage">
         <section class="about section" data-anchor="about">
@@ -54,7 +57,7 @@
         </section>
         <section class="achive section" data-anchor="achive">
                 <div class="zaglushka"></div>
-                <div class="vspishka"></div>
+                <!-- <div class="vspishka"></div> -->
                 <div class="container"> 
                         <div class="circles">
                             <div class="circle-block" v-for="circle in circles">
@@ -63,9 +66,9 @@
                                     <p class="about-numbers">{{circle.text}}</p>
                             </div> 
                         </div>
-                        <div class="img-block-2">
+                        <!-- <div class="img-block-2">
                             <img src="img/block-2-couple.png">
-                        </div>
+                        </div> -->
                 </div>
         </section>
         <section class="gallery section" data-anchor="gallery">
@@ -88,8 +91,8 @@
                     <p class="zagolovok">Отзывы</p>
                     <div class="otzivi-block">
                        <otziv-items v-for="item in otzivi" :otzivi="item"></otziv-items>
-                    
                     </div>
+                    <div class="btn-otzivi">Оставить отзыв</div>
             </div>
         </section>
 
@@ -98,10 +101,7 @@
             <div class="container">
                     <p class="zagolovok">Пакеты услуг</p>
                     <div class="price-block">
-
                         <price-items v-for="item in price_list" :price="item"></price-items>
-
-                       
                     </div>
             </div>
         </section>
@@ -120,6 +120,9 @@
             <div class="preloader-block">
                    <img src="img/preloader.gif">
             </div>
-        </artical>
+      </artical>
+      <article class="otzivi-form">
+        <modal-form  :settings="settings"></modal-form>
+      </article>
 </body>
 </html>

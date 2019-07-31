@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   padding: 0;
   margin: 0;
@@ -155,67 +156,6 @@ body {
   position: relative;
 }
 
-.achive .vspishka {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0vh;
-  background: #ffffff;
-  opacity: 0;
-}
-
-.achive .vspishka-show {
-  -webkit-animation: vspishka 0.2s ease 0s;
-          animation: vspishka 0.2s ease 0s;
-}
-
-@-webkit-keyframes vspishka {
-  0% {
-    opacity: 0;
-    height: 0%;
-  }
-  1% {
-    opacity: 0;
-    height: 100%;
-  }
-  50% {
-    opacity: 0.8;
-    height: 100%;
-  }
-  99% {
-    opacity: 0;
-    height: 100%;
-  }
-  100% {
-    opacity: 0;
-    height: 0%;
-  }
-}
-
-@keyframes vspishka {
-  0% {
-    opacity: 0;
-    height: 0%;
-  }
-  1% {
-    opacity: 0;
-    height: 100%;
-  }
-  50% {
-    opacity: 0.8;
-    height: 100%;
-  }
-  99% {
-    opacity: 0;
-    height: 100%;
-  }
-  100% {
-    opacity: 0;
-    height: 0%;
-  }
-}
-
 .achive .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -230,26 +170,6 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-}
-
-.achive .container .img-block-2 {
-  width: 700px;
-  margin: 0 auto;
-  z-index: 1;
-  opacity: 0;
-  -webkit-transition: all 3s ease;
-  transition: all 3s ease;
-}
-
-.achive .container .img-block-2 img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.achive .container .img-block-2-show {
-  opacity: 1;
 }
 
 .achive .container .circles {
@@ -403,6 +323,38 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+}
+
+.otzivi .container .btn-otzivi {
+  position: absolute;
+  top: 90px;
+  left: 50px;
+  color: #ffffff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 22px;
+  z-index: 1;
+  padding: 15px 20px;
+  line-height: 30px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
+}
+
+.otzivi .container .btn-otzivi:hover {
+  background: #fff;
+  color: #333;
+}
+
+.otzivi .container .btn-otzivi-show {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
 }
 
 .otzivi .container .otzivi-block {
@@ -572,41 +524,6 @@ body {
 
 .otzivi .container .otzivi-block-show {
   opacity: 1;
-}
-
-#menu {
-  dipslay: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: fixed;
-  top: 30%;
-  right: 50px;
-  z-index: 1;
-  opacity: 0;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#menu .menu-link a {
-  display: block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ffffff;
-  background: transparent;
-  margin-bottom: 20px;
-  border-radius: 50px;
-  cursor: pointer;
-  outline: none;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 .price {
@@ -871,5 +788,505 @@ body {
 .preloader .preloader-block {
   width: 70px;
   height: 70px;
+}
+
+.modal-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.modal-form .shadow-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-form .modal-form-itself {
+  width: 600px;
+  height: auto;
+  min-height: 60px;
+  border-radius: 5px;
+  background: #ffffff;
+  padding: 30px;
+  padding-top: 40px;
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 4;
+}
+
+@media screen and (max-width: 430px) {
+  .modal-form .modal-form-itself {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .modal-form .modal-form-itself {
+    width: 96vw;
+  }
+}
+
+.modal-form .modal-form-itself .close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  border: 3px solid #4d7198;
+  padding: 5px 0 3px 9px;
+  cursor: pointer;
+}
+
+.modal-form .modal-form-itself form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  height: auto;
+  border: 1px solid #4d7198;
+  position: relative;
+  padding: 10px;
+  padding-top: 40px;
+}
+
+@media screen and (max-width: 380px) {
+  .modal-form .modal-form-itself form {
+    max-height: 77vh;
+  }
+}
+
+.modal-form .modal-form-itself form .zagolovok-form {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 120%;
+  text-align: center;
+  color: #000000;
+  background-color: #ffffff;
+  width: 60%;
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media screen and (max-width: 430px) {
+  .modal-form .modal-form-itself form .zagolovok-form {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .modal-form .modal-form-itself form .zagolovok-form {
+    font-size: 14px;
+  }
+}
+
+.modal-form .modal-form-itself form .form-item {
+  margin: 10px 0;
+}
+
+.modal-form .modal-form-itself form input {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  line-height: 180%;
+  color: #333333;
+  padding: 5px;
+  width: 300px;
+  border: 1px solid darkgray;
+}
+
+@media screen and (max-width: 330px) {
+  .modal-form .modal-form-itself form input {
+    width: 260px;
+  }
+}
+
+.modal-form .modal-form-itself form textarea {
+  border-radius: 5px;
+  border: 1px solid darkgray;
+  width: 300px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  line-height: 180%;
+  color: #333333;
+  padding: 5px;
+  height: 150px;
+  overflow: scroll;
+}
+
+@media screen and (max-width: 430px) {
+  .modal-form .modal-form-itself form textarea {
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .modal-form .modal-form-itself form textarea {
+    width: 260px;
+  }
+}
+
+.modal-form .modal-form-itself form .button-send-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 240px;
+  height: 60px;
+  color: #ffffff;
+  border-radius: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 120%;
+  background: #4d7198;
+  border: 2px solid #4d7198;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.modal-form .modal-form-itself form .button-send-modal:hover {
+  background: #ffffff;
+  border: 2px solid #4d7198;
+  color: #333;
+}
+
+@media screen and (max-width: 330px) {
+  .modal-form .modal-form-itself form .button-send-modal {
+    min-height: 50px;
+  }
+}
+
+.modal-form .modal-form-itself form .modal-file {
+  position: relative;
+  width: 305px;
+}
+
+@media screen and (max-width: 330px) {
+  .modal-form .modal-form-itself form .modal-file {
+    width: 270px;
+  }
+}
+
+.modal-form .modal-form-itself form .modal-file label {
+  position: absolute;
+  top: 2%;
+  right: 0;
+  width: 195px;
+  height: 96%;
+  background: #ffffff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  line-height: 180%;
+  color: #333333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 330px) {
+  .modal-form .modal-form-itself form .modal-file label {
+    width: 160px;
+    font-size: 15px;
+  }
+}
+
+.modal-form .modal-form-itself form .modal-file label:after {
+  text-align: center;
+  content: "Выберите файл";
+  top: 0;
+  left: -115px;
+  width: 115px;
+  height: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #4d7198;
+  cursor: pointer;
+  visibility: visible;
+  position: absolute;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 180%;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 330px) {
+  .modal-form .modal-form-itself form .modal-file label:after {
+    font-size: 12px;
+  }
+}
+
+.modal-form .modal-form-itself form .accept-block {
+  margin-top: 10px;
+}
+
+.modal-form .modal-form-itself form .accept-block input[type=checkbox] {
+  display: none;
+  width: 10px;
+}
+
+.modal-form .modal-form-itself form .accept-block input[type=checkbox]:checked + label:before {
+  border-right: none;
+  border-top: none;
+  -webkit-transform: rotate(-50deg);
+          transform: rotate(-50deg);
+  top: 2px;
+  left: 2px;
+  height: 5px;
+}
+
+.modal-form .modal-form-itself form .accept-block input[type=checkbox] + label {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  color: #333333;
+  padding-left: 30px;
+  position: relative;
+}
+
+@media screen and (max-width: 330px) {
+  .modal-form .modal-form-itself form .accept-block input[type=checkbox] + label {
+    font-size: 13px;
+  }
+}
+
+.modal-form .modal-form-itself form .accept-block input[type=checkbox] + label:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #333333;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.modal-form .modal-form-itself form .description-accept {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+  line-height: 180%;
+  margin: 30px 0;
+  text-align: center;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  opacity: 1;
+  width: 100%;
+  height: 30px;
+}
+
+.modal-form .modal-form-itself form .hide {
+  opacity: 0;
+  height: 0px;
+}
+
+@media screen and (max-width: 1000px) {
+  .modal-form .modal-form-itself {
+    top: 7%;
+  }
+}
+
+.modal-form .modal-form-itself .description {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  line-height: 180%;
+  color: #333333;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  margin: 50px auto;
+}
+
+.modal-form .modal-form-itself .hide {
+  opacity: 0;
+  visibility: hidden;
+  margin: 0;
+  height: 0 !important;
+  padding: 0;
+}
+
+.main-menu {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.main-menu #menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.main-menu #menu .menu-link {
+  border-right: 2px solid #fff;
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.main-menu #menu .menu-link a {
+  display: block;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  text-decoration: none;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.main-menu #menu .menu-link:after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.main-menu #menu .menu-link:hover:after {
+  width: 100%;
+}
+
+.main-menu #menu .menu-link:last-child {
+  border-right: none;
+  margin-right: 5px;
+}
+
+.main-menu #menu .menu-link:first-child:after {
+  left: auto;
+  right: 0;
+}
+
+.main-menu:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -44px;
+  border: 22px solid transparent;
+  border-top: 22px solid rgba(255, 255, 255, 0.2);
+  border-right: 22px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-menu:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -43px;
+  border: 22px solid transparent;
+  border-left: 22px solid rgba(255, 255, 255, 0.2);
+  border-top: 22px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-menu .menu-contacts {
+  display: block;
+  margin-left: 10px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  padding: 5px;
+}
+
+.main-menu .menu-contacts .fa {
+  font-size: 15px;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */
