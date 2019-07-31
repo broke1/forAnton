@@ -316,9 +316,7 @@ window.addEventListener('load', function() {
 
                 main_menu.style.opacity = '1';
 
-                setTimeout(()=>{
-
-
+              
 
                   canvas.forEach(item => {
 
@@ -333,7 +331,7 @@ window.addEventListener('load', function() {
 
                  });
 
-                },2000);
+               
 
 
             }
